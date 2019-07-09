@@ -29,7 +29,7 @@ list.addEventListener('click', e => {
 
 const filterTodos = (term) => {
     Array.from(list.children)
-        .filter((listItem) => !listItem.textContent.includes(term))
+        .filter((listItem) => !listItem.textContent.toLowerCase().includes(term))
         .forEach((listItem) =>  listItem.classList.add('filtered'))
         Array.from(list.children)
         .filter((listItem) => listItem.textContent.includes(term))
@@ -38,6 +38,6 @@ const filterTodos = (term) => {
 
 // keyup
 search.addEventListener('keyup', () =>  {
-    const term = search.value.trim();
+    const term = search.value.trim().toLowerCase();
     filterTodos(term);
 })
